@@ -4,6 +4,9 @@ import 'package:gap/gap.dart';
 import 'package:newsapp/utils/app_layout.dart';
 import 'package:newsapp/utils/app_style.dart';
 import 'package:newsapp/widgets/dropdown.dart';
+import 'package:newsapp/widgets/latest_issue.dart';
+
+import 'class_models/editions_model.dart';
 
 class IssuesView extends StatefulWidget {
   const IssuesView({super.key});
@@ -13,71 +16,35 @@ class IssuesView extends StatefulWidget {
 }
 
 class _IssuesViewState extends State<IssuesView> {
+  Future<EdtDetails>? getEditions;
   @override
+  void initState() {
+    super.initState();
+    getEditions = parseEditions();
+  }
+
   Widget build(BuildContext context) {
     final size = AppLayout.getsize(context);
     return Column(
       children: [
-        Container(
-          padding: EdgeInsets.symmetric(
-              horizontal: AppLayout.getWidth(5),
-              vertical: AppLayout.getHeight(5)),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    "Issue Date",
-                    style: Style.boldText,
-                  ),
-                  Gap(AppLayout.getWidth(5)),
-                  Icon(
-                    Icons.info_outline,
-                    size: 18,
-                  ),
-                  //Icon(FluentSystemIcons.ic_fluent_share_android_regular)
-                ],
-              ),
-            ],
-          ),
-        ),
-        Gap(AppLayout.getHeight(10)),
-        Text("Newspaper name"),
-        Gap(AppLayout.getHeight(20)),
-        InkWell(
-          onTap: () {
-            debugPrint("Magazine tapped");
+        FutureBuilder<EdtDetails>(
+          future: getEditions,
+          builder: (context, snapshot) {
+            if (snapshot.hasData) {
+              debugPrint("Loaded");
+              return LatestEdition(
+                issueDate: snapshot.data!.editionId.toString(),
+                issueImg: snapshot.data!.editionImage.toString(),
+                issueId: snapshot.data!.editionName.toString(),
+                issuePrice: snapshot.data!.editionPrice.toString(),
+              );
+            } else if (snapshot.hasError) {
+              return const Text("Couldn't load data");
+            }
+            return const CircularProgressIndicator();
           },
-          child: Container(
-            color: Color(0xFF50C878),
-            height: AppLayout.getHeight(335),
-            width: AppLayout.getWidth(200),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Container(
-                  height: AppLayout.getHeight(295),
-                  width: AppLayout.getWidth(200),
-                  decoration: const BoxDecoration(
-                    color: Colors.red,
-                    image: DecorationImage(
-                      fit: BoxFit.cover,
-                      image: NetworkImage(
-                          "https://cdn.magzter.com/1587650944/1679115618/images/thumb/390_thumb_1.jpg"),
-                    ),
-                  ),
-                ),
-                Gap(AppLayout.getHeight(8)),
-                const Text(
-                  "Read",
-                  style: TextStyle(color: Colors.white, fontSize: 18),
-                ),
-              ],
-            ),
-          ),
         ),
+        //LatestEdition(),
         Gap(AppLayout.getHeight(30)),
         DropDown(),
       ],
