@@ -5,7 +5,7 @@ import 'package:newsapp/utils/app_layout.dart';
 import 'package:newsapp/utils/app_style.dart';
 import 'package:newsapp/widgets/dropdown.dart';
 import 'package:newsapp/widgets/latest_issue.dart';
-import 'package:newsapp/widgets/other__issues.dart';
+import 'package:newsapp/widgets/other_issues.dart';
 
 import 'class_models/editions_model.dart';
 
@@ -32,7 +32,7 @@ class _IssuesViewState extends State<IssuesView> {
           future: getEditions,
           builder: (context, snapshot) {
             if (snapshot.hasData) {
-              debugPrint("Loaded");
+              debugPrint("Latest issue Loaded");
               return LatestEdition(
                 issueDate: snapshot.data!.edtDetails!.first.editionName!,
                 issueImg: snapshot.data!.edtDetails!.first.editionImage!,
@@ -49,11 +49,19 @@ class _IssuesViewState extends State<IssuesView> {
         Gap(AppLayout.getHeight(30)),
         DropDown(),
         Gap(AppLayout.getHeight(30)),
-        OtherIssues(
-          issueDate: '',
-          issueId: '',
-          issueImg: '',
-          issuePrice: "Free",
+        FutureBuilder<Editions>(
+          future: getEditions,
+          builder: (context, snapshot) {
+            if (snapshot.hasData) {
+              print("List loaded");
+              return OtherIssues(
+                otherIssues: snapshot.data!.edtDetails!,
+              );
+            } else if (snapshot.hasError) {
+              return const Text("Couldn't load data");
+            }
+            return const CircularProgressIndicator();
+          },
         ),
       ],
     );
