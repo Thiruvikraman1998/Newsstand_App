@@ -51,7 +51,7 @@ class LatestEdition extends StatelessWidget {
           ),
         ),
         Gap(AppLayout.getHeight(10)),
-        Text("Newspaper name"),
+        Text(issueId),
         Gap(AppLayout.getHeight(20)),
         InkWell(
           onTap: () {
@@ -75,8 +75,8 @@ class LatestEdition extends StatelessWidget {
                   ),
                 ),
                 Gap(AppLayout.getHeight(8)),
-                const Text(
-                  "Read",
+                Text(
+                  issuePrice,
                   style: TextStyle(color: Colors.white, fontSize: 18),
                 ),
               ],
