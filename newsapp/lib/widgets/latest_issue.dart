@@ -22,7 +22,7 @@ class LatestEdition extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final EdtDetails editionDetails;
+    //final EdtDetails editionDetails;
     return Column(
       children: [
         Container(
@@ -36,7 +36,7 @@ class LatestEdition extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "Date",
+                    issueDate,
                     style: Style.boldText,
                   ),
                   Gap(AppLayout.getWidth(5)),
