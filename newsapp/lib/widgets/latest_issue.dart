@@ -40,7 +40,7 @@ class LatestEdition extends StatelessWidget {
                     style: Style.boldText,
                   ),
                   Gap(AppLayout.getWidth(5)),
-                  Icon(
+                  const Icon(
                     Icons.info_outline,
                     size: 18,
                   ),
@@ -51,7 +51,7 @@ class LatestEdition extends StatelessWidget {
           ),
         ),
         Gap(AppLayout.getHeight(10)),
-        Text(issueId),
+        Text("Dainik Bhaskar ${issueId}"),
         Gap(AppLayout.getHeight(20)),
         InkWell(
           onTap: () {
@@ -71,12 +71,12 @@ class LatestEdition extends StatelessWidget {
                     color: Colors.red,
                     image: DecorationImage(
                         fit: BoxFit.cover,
-                        image: NetworkImage("$imgPrefix+$issueImg")),
+                        image: NetworkImage("$imgPrefix$issueImg")),
                   ),
                 ),
                 Gap(AppLayout.getHeight(8)),
                 Text(
-                  issuePrice,
+                  issuePrice == 'Free' ? "Read" : "Buy this issue",
                   style: TextStyle(color: Colors.white, fontSize: 18),
                 ),
               ],

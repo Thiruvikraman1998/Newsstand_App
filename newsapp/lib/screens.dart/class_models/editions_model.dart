@@ -82,10 +82,10 @@ class EdtDetails extends Editions {
 String editionUrl =
     "https://sls.magzter.com/magservices/prod/getIssuesByMag?mid=21607";
 
-Future<EdtDetails> parseEditions() async {
+Future<Editions> parseEditions() async {
   final response = await http.get(Uri.parse(editionUrl));
   if (response.statusCode == 200) {
-    return EdtDetails.fromJson(jsonDecode(response.body));
+    return Editions.fromJson(jsonDecode(response.body));
   } else {
     throw Exception("Editions couldn't load");
   }

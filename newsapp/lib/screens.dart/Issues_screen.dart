@@ -16,7 +16,7 @@ class IssuesView extends StatefulWidget {
 }
 
 class _IssuesViewState extends State<IssuesView> {
-  Future<EdtDetails>? getEditions;
+  Future<Editions>? getEditions;
   @override
   void initState() {
     super.initState();
@@ -27,16 +27,16 @@ class _IssuesViewState extends State<IssuesView> {
     final size = AppLayout.getsize(context);
     return Column(
       children: [
-        FutureBuilder<EdtDetails>(
+        FutureBuilder<Editions>(
           future: getEditions,
           builder: (context, snapshot) {
             if (snapshot.hasData) {
               debugPrint("Loaded");
               return LatestEdition(
-                issueDate: snapshot.data!.editionId.toString(),
-                issueImg: snapshot.data!.editionImage.toString(),
-                issueId: snapshot.data!.editionName.toString(),
-                issuePrice: snapshot.data!.editionPrice.toString(),
+                issueDate: snapshot.data!.edtDetails!.first.editionName!,
+                issueImg: snapshot.data!.edtDetails!.first.editionImage!,
+                issueId: snapshot.data!.edtDetails!.first.editionName!,
+                issuePrice: snapshot.data!.edtDetails!.first.editionPrice!,
               );
             } else if (snapshot.hasError) {
               return const Text("Couldn't load data");
