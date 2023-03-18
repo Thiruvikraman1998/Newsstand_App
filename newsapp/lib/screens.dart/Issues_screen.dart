@@ -5,6 +5,7 @@ import 'package:newsapp/utils/app_layout.dart';
 import 'package:newsapp/utils/app_style.dart';
 import 'package:newsapp/widgets/dropdown.dart';
 import 'package:newsapp/widgets/latest_issue.dart';
+import 'package:newsapp/widgets/other__issues.dart';
 
 import 'class_models/editions_model.dart';
 
@@ -47,6 +48,13 @@ class _IssuesViewState extends State<IssuesView> {
         //LatestEdition(),
         Gap(AppLayout.getHeight(30)),
         DropDown(),
+        Gap(AppLayout.getHeight(30)),
+        OtherIssues(
+          issueDate: '',
+          issueId: '',
+          issueImg: '',
+          issuePrice: "Free",
+        ),
       ],
     );
   }

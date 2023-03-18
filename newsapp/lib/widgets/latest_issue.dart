@@ -58,7 +58,7 @@ class LatestEdition extends StatelessWidget {
             debugPrint("Magazine tapped");
           },
           child: Container(
-            color: Color(0xFF50C878),
+            color: Style.buttonColor,
             height: AppLayout.getHeight(335),
             width: AppLayout.getWidth(200),
             child: Column(
