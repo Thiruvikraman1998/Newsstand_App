@@ -35,15 +35,17 @@ class IssuesList extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "Dainik Bhaskar ${issueItems.editionId}",
+                    "$magName${issueItems.editionId}",
                     style: TextStyle(fontSize: 20),
                   ),
                   Text("Issue Date${issueItems.editionName}"),
                   ElevatedButton(
                     onPressed: () {},
                     style: ButtonStyle(
-                        backgroundColor:
-                            MaterialStatePropertyAll(Style.buttonColor)),
+                      backgroundColor: issueItems.editionPrice == 'Free'
+                          ? MaterialStatePropertyAll(Style.buttonColor)
+                          : MaterialStatePropertyAll(Color(0xFF1253B5)),
+                    ),
                     child: Text(
                         issueItems.editionPrice == 'Free' ? "Read" : "Buy"),
                   ),

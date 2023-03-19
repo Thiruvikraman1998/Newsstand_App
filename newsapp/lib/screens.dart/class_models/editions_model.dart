@@ -3,6 +3,8 @@ import 'dart:convert';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 
+import '../../utils/app_constants.dart';
+
 class Editions {
   List<EdtDetails>? edtDetails;
 
@@ -80,7 +82,7 @@ class EdtDetails extends Editions {
 }
 
 String editionUrl =
-    "https://sls.magzter.com/magservices/prod/getIssuesByMag?mid=21607";
+    "https://sls.magzter.com/magservices/prod/getIssuesByMag?mid=$mid";
 
 Future<Editions> parseEditions() async {
   final response = await http.get(Uri.parse(editionUrl));
