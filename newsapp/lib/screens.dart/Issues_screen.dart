@@ -21,6 +21,7 @@ class IssuesView extends StatefulWidget {
 
 class _IssuesViewState extends State<IssuesView> {
   Future<Editions>? getEditions;
+  final List<Widget> others = <Widget>[];
   @override
   void initState() {
     super.initState();
