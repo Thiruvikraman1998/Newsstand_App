@@ -18,115 +18,130 @@ class MagazineDetails extends StatefulWidget {
 }
 
 class _MagazineDetailsState extends State<MagazineDetails> {
-  WidgetMarker selectedWidget = WidgetMarker.issues;
+  WidgetMarker selectedWidget = WidgetMarker.articles;
+  final bool isSelected = true;
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        children: [
-          Container(
-            //height: AppLayout.getHeight(120),
-            padding: EdgeInsets.only(
-              top: AppLayout.getHeight(80),
-              bottom: AppLayout.getHeight(15),
-            ),
-            width: double.infinity,
-            child: SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Column(
-                children: [
-                  Row(
-                    children: [
-                      Container(
-                        margin: EdgeInsets.symmetric(
-                            horizontal: AppLayout.getWidth(10),
-                            vertical: AppLayout.getHeight(8)),
-                        child: InkWell(
-                          onTap: () {
-                            debugPrint("Issues pressed");
-                            setState(() {
-                              selectedWidget = WidgetMarker.issues;
-                            });
-                          },
-                          child: Text(
-                            "Issues".toUpperCase(),
-                            style: Style.menuFontStyle,
-                          ),
+    return Column(
+      children: [
+        Container(
+          height: AppLayout.getHeight(120),
+          padding: EdgeInsets.only(
+            top: AppLayout.getHeight(60),
+            bottom: AppLayout.getHeight(15),
+          ),
+          width: double.infinity,
+          child: SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Column(
+              children: [
+                Row(
+                  children: [
+                    Container(
+                      margin: EdgeInsets.symmetric(
+                          horizontal: AppLayout.getWidth(10),
+                          vertical: AppLayout.getHeight(8)),
+                      child: InkWell(
+                        onTap: () {
+                          debugPrint("Issues pressed");
+                          setState(() {
+                            selectedWidget = WidgetMarker.issues;
+                            isSelected;
+                          });
+                        },
+                        child: Text(
+                          "Issues".toUpperCase(),
+                          style: TextStyle(
+                              color: isSelected == true
+                                  ? Colors.blue[700]
+                                  : Colors.grey),
                         ),
                       ),
-                      Container(
-                        margin: EdgeInsets.symmetric(
-                            horizontal: AppLayout.getWidth(10)),
-                        child: InkWell(
-                          onTap: () {
-                            debugPrint("Articles pressed");
-                            setState(() {
-                              selectedWidget = WidgetMarker.articles;
-                            });
-                          },
-                          child: Text(
-                            "Articles".toUpperCase(),
-                            style: Style.menuFontStyle,
-                          ),
+                    ),
+                    Container(
+                      margin: EdgeInsets.symmetric(
+                          horizontal: AppLayout.getWidth(10)),
+                      child: InkWell(
+                        onTap: () {
+                          debugPrint("Articles pressed");
+                          setState(() {
+                            selectedWidget = WidgetMarker.articles;
+                          });
+                        },
+                        child: Text(
+                          "Articles".toUpperCase(),
+                          style: TextStyle(
+                              color: isSelected == true
+                                  ? Colors.blue[700]
+                                  : Colors.grey),
                         ),
                       ),
-                      Container(
-                        margin: EdgeInsets.symmetric(
-                            horizontal: AppLayout.getWidth(10)),
-                        child: InkWell(
-                          onTap: () {
-                            debugPrint("On my device pressed");
-                            setState(() {
-                              selectedWidget = WidgetMarker.onMyDevice;
-                            });
-                          },
-                          child: Text(
-                            "On my device".toUpperCase(),
-                            style: Style.menuFontStyle,
-                          ),
+                    ),
+                    Container(
+                      margin: EdgeInsets.symmetric(
+                          horizontal: AppLayout.getWidth(10)),
+                      child: InkWell(
+                        onTap: () {
+                          debugPrint("On my device pressed");
+                          setState(() {
+                            selectedWidget = WidgetMarker.onMyDevice;
+                          });
+                        },
+                        child: Text(
+                          "On my device".toUpperCase(),
+                          style: TextStyle(
+                              color: isSelected == true
+                                  ? Colors.blue[700]
+                                  : Colors.grey),
                         ),
                       ),
-                      Container(
-                        margin: EdgeInsets.symmetric(
-                            horizontal: AppLayout.getWidth(10)),
-                        child: InkWell(
-                          onTap: () {
-                            debugPrint("Bookmarks pressed");
-                            setState(() {
-                              selectedWidget = WidgetMarker.bookMarks;
-                            });
-                          },
-                          child: Text(
-                            "Bookmarks".toUpperCase(),
-                            style: Style.menuFontStyle,
-                          ),
+                    ),
+                    Container(
+                      margin: EdgeInsets.symmetric(
+                          horizontal: AppLayout.getWidth(10)),
+                      child: InkWell(
+                        onTap: () {
+                          debugPrint("Bookmarks pressed");
+                          setState(() {
+                            selectedWidget = WidgetMarker.bookMarks;
+                          });
+                        },
+                        child: Text(
+                          "Bookmarks".toUpperCase(),
+                          style: TextStyle(
+                              color: isSelected == true
+                                  ? Colors.blue[700]
+                                  : Colors.grey),
                         ),
                       ),
-                      Container(
-                        margin: EdgeInsets.symmetric(
-                            horizontal: AppLayout.getWidth(10)),
-                        child: InkWell(
-                          onTap: () {
-                            debugPrint("clips pressed");
-                            setState(() {
-                              selectedWidget = WidgetMarker.clips;
-                            });
-                          },
-                          child: Text(
-                            "clips".toUpperCase(),
-                            style: Style.menuFontStyle,
-                          ),
+                    ),
+                    Container(
+                      margin: EdgeInsets.symmetric(
+                          horizontal: AppLayout.getWidth(10)),
+                      child: InkWell(
+                        onTap: () {
+                          debugPrint("clips pressed");
+                          setState(() {
+                            selectedWidget = WidgetMarker.clips;
+                          });
+                        },
+                        child: Text(
+                          "clips".toUpperCase(),
+                          style: TextStyle(
+                              color: isSelected == true
+                                  ? Colors.blue[700]
+                                  : Colors.grey),
                         ),
                       ),
-                    ],
-                  ),
-                ],
-              ),
+                    ),
+                  ],
+                ),
+              ],
             ),
           ),
-          getSelectedWidget(),
-        ],
-      ),
+        ),
+        getSelectedWidget(),
+      ],
     );
   }
 

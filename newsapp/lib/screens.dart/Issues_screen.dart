@@ -30,22 +30,37 @@ class _IssuesViewState extends State<IssuesView> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: SingleChildScrollView(
-        scrollDirection: Axis.vertical,
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            FutureBuilder<Editions>(
+    return SingleChildScrollView(
+      scrollDirection: Axis.vertical,
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          FutureBuilder<Editions>(
+            future: getEditions,
+            builder: (context, snapshot) {
+              if (snapshot.hasData) {
+                debugPrint("Latest issue Loaded");
+                return LatestEdition(
+                  issueDate: snapshot.data!.edtDetails!.first.editionName!,
+                  issueImg: snapshot.data!.edtDetails!.first.editionImage!,
+                  issueId: snapshot.data!.edtDetails!.first.editionName!,
+                  issuePrice: snapshot.data!.edtDetails!.first.editionPrice!,
+                );
+              } else if (snapshot.hasError) {
+                return const Text("Couldn't load data");
+              }
+              return const CircularProgressIndicator();
+            },
+          ),
+          Container(child: isNewsPaper ? DropDown() : null),
+          Flexible(
+            child: FutureBuilder<Editions>(
               future: getEditions,
               builder: (context, snapshot) {
                 if (snapshot.hasData) {
-                  debugPrint("Latest issue Loaded");
-                  return LatestEdition(
-                    issueDate: snapshot.data!.edtDetails!.first.editionName!,
-                    issueImg: snapshot.data!.edtDetails!.first.editionImage!,
-                    issueId: snapshot.data!.edtDetails!.first.editionName!,
-                    issuePrice: snapshot.data!.edtDetails!.first.editionPrice!,
+                  debugPrint("List loaded");
+                  return OtherIssues(
+                    otherIssues: snapshot.data!.edtDetails!,
                   );
                 } else if (snapshot.hasError) {
                   return const Text("Couldn't load data");
@@ -53,25 +68,8 @@ class _IssuesViewState extends State<IssuesView> {
                 return const CircularProgressIndicator();
               },
             ),
-            Container(child: isNewsPaper ? DropDown() : null),
-            Flexible(
-              child: FutureBuilder<Editions>(
-                future: getEditions,
-                builder: (context, snapshot) {
-                  if (snapshot.hasData) {
-                    debugPrint("List loaded");
-                    return OtherIssues(
-                      otherIssues: snapshot.data!.edtDetails!,
-                    );
-                  } else if (snapshot.hasError) {
-                    return const Text("Couldn't load data");
-                  }
-                  return const CircularProgressIndicator();
-                },
-              ),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

@@ -21,7 +21,7 @@ class OtherIssues extends StatelessWidget {
       margin: EdgeInsets.symmetric(horizontal: AppLayout.getWidth(15)),
       padding: EdgeInsets.symmetric(
           horizontal: AppLayout.getWidth(5), vertical: AppLayout.getHeight(10)),
-      height: AppLayout.getHeight(300),
+      height: double.maxFinite,
       child: ListView.builder(
         //physics: NeverScrollableScrollPhysics(),
         shrinkWrap: true,
