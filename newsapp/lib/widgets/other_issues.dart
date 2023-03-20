@@ -23,6 +23,8 @@ class OtherIssues extends StatelessWidget {
           horizontal: AppLayout.getWidth(5), vertical: AppLayout.getHeight(10)),
       height: AppLayout.getHeight(300),
       child: ListView.builder(
+        //physics: NeverScrollableScrollPhysics(),
+        shrinkWrap: true,
         itemCount: otherIssues.length,
         itemBuilder: (context, index) {
           return IssuesList(
