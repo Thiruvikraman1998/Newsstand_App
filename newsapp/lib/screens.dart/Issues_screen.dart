@@ -52,7 +52,6 @@ class _IssuesViewState extends State<IssuesView> {
                 return const CircularProgressIndicator();
               },
             ),
-            Gap(AppLayout.getHeight(30)),
             Container(child: isNewsPaper ? DropDown() : null),
             Flexible(
               child: FutureBuilder<Editions>(
