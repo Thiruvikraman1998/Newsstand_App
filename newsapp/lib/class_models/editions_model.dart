@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 
-import '../../utils/app_constants.dart';
+import '../utils/app_constants.dart';
 
 class Editions {
   List<EdtDetails>? edtDetails;

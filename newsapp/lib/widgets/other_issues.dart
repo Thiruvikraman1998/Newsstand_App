@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:newsapp/screens.dart/class_models/editions_model.dart';
+import 'package:newsapp/class_models/editions_model.dart';
 import 'package:newsapp/utils/app_layout.dart';
 import 'package:newsapp/utils/app_style.dart';
 import 'package:newsapp/widgets/list_tile.dart';
@@ -10,7 +10,7 @@ import '../utils/app_constants.dart';
 class OtherIssues extends StatelessWidget {
   final List<EdtDetails> otherIssues;
 
-  OtherIssues({
+  const OtherIssues({
     super.key,
     required this.otherIssues,
   });
@@ -21,12 +21,12 @@ class OtherIssues extends StatelessWidget {
       margin: EdgeInsets.symmetric(horizontal: AppLayout.getWidth(15)),
       padding: EdgeInsets.symmetric(
           horizontal: AppLayout.getWidth(5), vertical: AppLayout.getHeight(10)),
-      height: AppLayout.getHeight(140),
+      height: AppLayout.getHeight(300),
       child: ListView.builder(
         itemCount: otherIssues.length,
         itemBuilder: (context, index) {
           return IssuesList(
-            issueItems: otherIssues[index],
+            issueItems: otherIssues[index + 1],
           );
         },
       ),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:newsapp/screens.dart/class_models/editions_model.dart';
+import 'package:newsapp/class_models/editions_model.dart';
 import 'package:newsapp/utils/app_constants.dart';
 
 import '../utils/app_layout.dart';
@@ -68,8 +68,8 @@ class LatestEdition extends StatelessWidget {
                   height: AppLayout.getHeight(295),
                   width: AppLayout.getWidth(200),
                   decoration: BoxDecoration(
-                    color: Colors.red,
                     image: DecorationImage(
+                        filterQuality: FilterQuality.high,
                         fit: BoxFit.cover,
                         image: NetworkImage("$imgPrefix$issueImg")),
                   ),
