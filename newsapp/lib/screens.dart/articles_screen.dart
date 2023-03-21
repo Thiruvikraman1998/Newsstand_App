@@ -13,7 +13,7 @@ class ArticleScreen extends StatefulWidget {
 }
 
 class _ArticleScreenState extends State<ArticleScreen> {
-  Future<Stories>? getStories;
+  Future<Stories?>? getStories;
 
   @override
   void initState() {
@@ -28,13 +28,13 @@ class _ArticleScreenState extends State<ArticleScreen> {
         scrollDirection: Axis.vertical,
         child: Column(
           children: [
-            FutureBuilder<Stories>(
+            FutureBuilder<Stories?>(
               future: getStories,
               builder: (context, snapshot) {
                 if (snapshot.hasData) {
                   //debugPrint("${snapshot.data!.articles!.first}");
                   debugPrint("Data loaded");
-                  return Text("Stories");
+                  return Text("Stories ${snapshot.data!.articles}");
                   // StoriesView(
                   //   thumb: snapshot.data!.stories!.first.thumb,
                   //   magname: snapshot.data!.stories!.first.magname,
