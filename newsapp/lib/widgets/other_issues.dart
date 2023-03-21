@@ -18,17 +18,19 @@ class OtherIssues extends StatelessWidget {
   @override
   Widget build(context) {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: AppLayout.getWidth(15)),
+      margin: EdgeInsets.symmetric(
+        horizontal: AppLayout.getWidth(15),
+      ),
       padding: EdgeInsets.symmetric(
           horizontal: AppLayout.getWidth(5), vertical: AppLayout.getHeight(10)),
-      height: double.maxFinite,
+      //height: double.maxFinite,
       child: ListView.builder(
-        //physics: NeverScrollableScrollPhysics(),
+        physics: NeverScrollableScrollPhysics(),
         shrinkWrap: true,
-        itemCount: otherIssues.length,
+        itemCount: otherIssues.length - 1,
         itemBuilder: (context, index) {
           return IssuesList(
-            issueItems: otherIssues[index + 1],
+            issueItems: otherIssues[index = index + 1],
           );
         },
       ),

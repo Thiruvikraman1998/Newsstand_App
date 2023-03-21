@@ -34,14 +34,13 @@ class _ArticleScreenState extends State<ArticleScreen> {
                 if (snapshot.hasData) {
                   //debugPrint("${snapshot.data!.articles!.first}");
                   debugPrint("Data loaded");
-                  return Text("Stories ${snapshot.data!.articles}");
-                  // StoriesView(
-                  //   thumb: snapshot.data!.stories!.first.thumb,
-                  //   magname: snapshot.data!.stories!.first.magname,
-                  //   issuename: snapshot.data!.stories!.first.issuename,
-                  //   title: snapshot.data!.stories!.first.title,
-                  //   timeRead: snapshot.data!.stories!.first.timeRead,
-                  // );
+                  return StoriesView(
+                    thumb: snapshot.data!.articles!.first.thumb,
+                    magname: snapshot.data!.articles!.first.magname,
+                    issuename: snapshot.data!.articles!.first.issuename,
+                    title: snapshot.data!.articles!.first.title,
+                    timeRead: snapshot.data!.articles!.first.timeRead,
+                  );
                 } else if (snapshot.hasError) {
                   return Text("Couldn't load stories");
                 }

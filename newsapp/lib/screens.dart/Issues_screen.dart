@@ -1,4 +1,5 @@
 import 'package:fluentui_icons/fluentui_icons.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:newsapp/utils/app_layout.dart';
@@ -21,7 +22,7 @@ class IssuesView extends StatefulWidget {
 
 class _IssuesViewState extends State<IssuesView> {
   Future<Editions>? getEditions;
-  //final List<Widget> others = <Widget>[];
+  final List others = [];
   @override
   void initState() {
     super.initState();
@@ -40,6 +41,7 @@ class _IssuesViewState extends State<IssuesView> {
             builder: (context, snapshot) {
               if (snapshot.hasData) {
                 debugPrint("Latest issue Loaded");
+
                 return LatestEdition(
                   issueDate: snapshot.data!.edtDetails!.first.editionName!,
                   issueImg: snapshot.data!.edtDetails!.first.editionImage!,
@@ -49,25 +51,24 @@ class _IssuesViewState extends State<IssuesView> {
               } else if (snapshot.hasError) {
                 return const Text("Couldn't load data");
               }
-              return const CircularProgressIndicator();
+              return const CupertinoActivityIndicator();
             },
           ),
+          Gap(AppLayout.getHeight(15)),
           Container(child: isNewsPaper ? DropDown() : null),
-          Flexible(
-            child: FutureBuilder<Editions>(
-              future: getEditions,
-              builder: (context, snapshot) {
-                if (snapshot.hasData) {
-                  debugPrint("List loaded");
-                  return OtherIssues(
-                    otherIssues: snapshot.data!.edtDetails!,
-                  );
-                } else if (snapshot.hasError) {
-                  return const Text("Couldn't load data");
-                }
-                return const CircularProgressIndicator();
-              },
-            ),
+          FutureBuilder<Editions>(
+            future: getEditions,
+            builder: (context, snapshot) {
+              if (snapshot.hasData) {
+                debugPrint("List loaded");
+                return OtherIssues(
+                  otherIssues: snapshot.data!.edtDetails!,
+                );
+              } else if (snapshot.hasError) {
+                return const Text("Couldn't load data");
+              }
+              return const CupertinoActivityIndicator();
+            },
           ),
         ],
       ),
@@ -127,3 +128,5 @@ class _IssuesViewState extends State<IssuesView> {
 //             return const CircularProgressIndicator();
 //           },
 //         ),
+
+

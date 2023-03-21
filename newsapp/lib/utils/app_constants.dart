@@ -1,4 +1,4 @@
-int? mid = 190;
+int? mid = 5;
 String magName = "FilmFare";
 String? imgPrefix = "https://cdn.magzter.com/";
 bool isNewsPaper = false;

@@ -202,19 +202,13 @@ class Articles {
 String storiesUrl =
     "https://sls.magzter.com/maglists/prod/v1/article-filter?storeID=1&magid=190&age_rating=9&lang_code=";
 
-Future<Stories?> parseStories() async {
-  try {
-    final response = await http.get(Uri.parse(storiesUrl));
-    if (response.statusCode == 200) {
-      debugPrint("111 ${response.body}");
-      debugPrint("222 ${jsonDecode(response.body)}");
-      debugPrint("333 ${Stories.fromJson(jsonDecode(response.body))}");
-      return Stories.fromJson(jsonDecode(response.body));
-    } else {
-      return null;
-    }
-  } catch (e) {
-    debugPrint("Respo Error $e");
-    return null;
+Future<Stories> parseStories() async {
+  final response = await http.get(Uri.parse(storiesUrl));
+  if (response.statusCode == 200) {
+    debugPrint(response.statusCode.toString());
+    debugPrint("333 ${Stories.fromJson(jsonDecode(response.body))}");
+    return Stories.fromJson(jsonDecode(response.body));
+  } else {
+    throw Exception("Error");
   }
 }

@@ -15,6 +15,7 @@ class IssuesList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      margin: EdgeInsets.symmetric(vertical: AppLayout.getHeight(15)),
       child: Row(
         children: [
           Container(

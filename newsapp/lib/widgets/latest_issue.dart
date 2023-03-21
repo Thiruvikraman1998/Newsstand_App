@@ -59,13 +59,13 @@ class LatestEdition extends StatelessWidget {
           },
           child: Container(
             color: issuePrice == 'Free' ? Style.buttonColor : Color(0xFF1253B5),
-            height: AppLayout.getHeight(335),
+            height: AppLayout.getHeight(320),
             width: AppLayout.getWidth(200),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Container(
-                  height: AppLayout.getHeight(295),
+                  height: AppLayout.getHeight(275),
                   width: AppLayout.getWidth(200),
                   decoration: BoxDecoration(
                     image: DecorationImage(
