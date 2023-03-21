@@ -72,11 +72,9 @@ class EdtDetails extends Editions {
     editions['editionName'] = this.editionName;
     editions['is_sharing'] = this.isSharing;
     editions['editionDescription'] = this.editionDescription;
-    editions['editionPriceIdentifierMynewsstand'] =
-        editions['editionPrice'] = this.editionPrice;
+    editions['editionPrice'] = this.editionPrice;
     editions['editionPublished'] = this.editionPublished;
-    editions['editionPriceIdentifierNewsstand'] =
-        editions['number_pages'] = this.numberPages;
+    editions['number_pages'] = this.numberPages;
     return editions;
   }
 }

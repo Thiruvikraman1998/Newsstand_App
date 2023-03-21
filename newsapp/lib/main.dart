@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'screens.dart/magazine_details.dart';
+import 'dart:ffi';
 
 void main(List<String> args) {
   runApp(const NewssApp());

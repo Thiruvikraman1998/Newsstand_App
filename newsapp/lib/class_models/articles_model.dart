@@ -2,23 +2,23 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 class Stories {
-  List<Stories>? stories;
+  List<Articles>? articles;
 
-  Stories({this.stories});
+  Stories({this.articles});
 
   Stories.fromJson(Map<String, dynamic> json) {
-    if (json['Article'] != null) {
-      stories = <Stories>[];
-      json['Articles'].forEach((v) {
-        stories!.add(Stories.fromJson(v));
+    if (json['stories'] != null) {
+      articles = <Articles>[];
+      json['stories'].forEach((v) {
+        articles!.add(Articles.fromJson(v));
       });
     }
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
-    if (this.stories != null) {
-      data['articles'] = this.stories!.map((v) => v.toJson()).toList();
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    if (this.articles != null) {
+      data['stories'] = this.articles!.map((v) => v.toJson()).toList();
     }
     return data;
   }

@@ -3,18 +3,18 @@ import 'package:gap/gap.dart';
 import 'package:newsapp/utils/app_layout.dart';
 
 class StoriesView extends StatelessWidget {
-  // final String? thumb;
-  // final String? magname;
-  // final String? issuename;
-  // final String? title;
-  // final String? timeRead;
+  final String? thumb;
+  final String? magname;
+  final String? issuename;
+  final String? title;
+  final String? timeRead;
   const StoriesView({
     super.key,
-    // required this.thumb,
-    // required this.magname,
-    // required this.issuename,
-    // required this.title,
-    // required this.timeRead,
+    required this.thumb,
+    required this.magname,
+    required this.issuename,
+    required this.title,
+    required this.timeRead,
   });
 
   @override
