@@ -34,7 +34,7 @@ class IssuesList extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "$magName Issue id: ${issueItems.editionId}",
+                "$magName ${issueItems.editionId}",
                 style: TextStyle(fontSize: 20),
               ),
               Text("Issue Date ${issueItems.editionName}"),
