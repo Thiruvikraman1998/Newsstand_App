@@ -51,7 +51,7 @@ class LatestEdition extends StatelessWidget {
           ),
         ),
         Gap(AppLayout.getHeight(10)),
-        Text("Dainik Bhaskar ${issueId}"),
+        Text("India Today ${issueId}"),
         Gap(AppLayout.getHeight(20)),
         InkWell(
           onTap: () {

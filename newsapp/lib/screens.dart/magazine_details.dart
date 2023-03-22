@@ -18,7 +18,7 @@ class MagazineDetails extends StatefulWidget {
 }
 
 class _MagazineDetailsState extends State<MagazineDetails> {
-  WidgetMarker selectedWidget = WidgetMarker.articles;
+  WidgetMarker selectedWidget = WidgetMarker.issues;
   final bool isSelected = true;
   @override
   Widget build(BuildContext context) {

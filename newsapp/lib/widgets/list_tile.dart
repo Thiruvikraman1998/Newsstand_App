@@ -34,10 +34,10 @@ class IssuesList extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "$magName${issueItems.editionId}",
+                "$magName Issue id: ${issueItems.editionId}",
                 style: TextStyle(fontSize: 20),
               ),
-              Text("Issue Date${issueItems.editionName}"),
+              Text("Issue Date ${issueItems.editionName}"),
               ElevatedButton(
                 onPressed: () {},
                 style: ButtonStyle(
