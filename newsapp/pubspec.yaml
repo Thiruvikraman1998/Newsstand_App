@@ -39,6 +39,8 @@ dependencies:
   get: ^4.6.5
   fluentui_icons: ^1.0.0
   http: ^0.13.5
+  firebase_auth: ^4.3.0
+  firebase_core: ^2.8.0
 
 dev_dependencies:
   flutter_test:
