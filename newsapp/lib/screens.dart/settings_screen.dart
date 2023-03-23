@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:newsapp/screens.dart/Login_screen.dart';
+import 'package:newsapp/screens.dart/account_screen.dart';
 import 'package:newsapp/screens.dart/articles_screen.dart';
 import 'package:newsapp/screens.dart/magazine_details.dart';
 import 'package:newsapp/screens.dart/sign_up.dart';
@@ -21,14 +22,15 @@ class SettingsScreen extends StatelessWidget {
         ),
         actions: [
           IconButton(
-              onPressed: () {
-                Navigator.pop(context, true);
-              },
-              icon: const Icon(
-                Icons.close,
-                color: Colors.black54,
-                size: 30,
-              )),
+            onPressed: () {
+              Navigator.pop(context, true);
+            },
+            icon: const Icon(
+              Icons.close,
+              color: Colors.black54,
+              size: 30,
+            ),
+          ),
         ],
         automaticallyImplyLeading: false,
         centerTitle: true,
@@ -48,7 +50,7 @@ class SettingsScreen extends StatelessWidget {
                     debugPrint("Account tapped");
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => SignUp()),
+                      MaterialPageRoute(builder: (context) => AccountScreen()),
                     );
                   },
                   child: Row(
