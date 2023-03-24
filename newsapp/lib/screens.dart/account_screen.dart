@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
+import 'package:newsapp/screens.dart/Login_screen.dart';
 import 'package:newsapp/utils/app_layout.dart';
 
 class AccountScreen extends StatefulWidget {
@@ -69,13 +70,26 @@ class _AccountScreenState extends State<AccountScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Container(
-                  width: AppLayout.getWidth(130),
-                  height: AppLayout.getHeight(30),
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Colors.grey),
+                InkWell(
+                  onTap: () {
+                    setState(
+                      () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => LoginScreen()),
+                        );
+                      },
+                    );
+                  },
+                  child: Container(
+                    width: AppLayout.getWidth(130),
+                    height: AppLayout.getHeight(30),
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Colors.grey),
+                    ),
+                    child: Center(child: Text("Login")),
                   ),
-                  child: Center(child: Text("Login")),
                 ),
                 Container(
                   width: AppLayout.getWidth(130),

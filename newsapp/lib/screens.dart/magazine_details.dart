@@ -28,7 +28,7 @@ class _MagazineDetailsState extends State<MagazineDetails> {
         child: Column(
           children: [
             Container(
-              height: AppLayout.getHeight(120),
+              height: AppLayout.getHeight(140),
               padding: EdgeInsets.only(
                 top: AppLayout.getHeight(60),
                 bottom: AppLayout.getHeight(15),
@@ -44,18 +44,18 @@ class _MagazineDetailsState extends State<MagazineDetails> {
                           margin: EdgeInsets.symmetric(
                               horizontal: AppLayout.getWidth(10),
                               vertical: AppLayout.getHeight(8)),
-                          child: InkWell(
-                            onTap: () {
+                          child: TextButton(
+                            onPressed: () {
                               debugPrint("Issues pressed");
                               setState(() {
                                 selectedWidget = WidgetMarker.issues;
-                                isSelected;
+                                isSelected == !isSelected;
                               });
                             },
                             child: Text(
                               "Issues".toUpperCase(),
                               style: TextStyle(
-                                  color: isSelected == true
+                                  color: isSelected
                                       ? Colors.blue[700]
                                       : Colors.grey),
                             ),
@@ -64,17 +64,18 @@ class _MagazineDetailsState extends State<MagazineDetails> {
                         Container(
                           margin: EdgeInsets.symmetric(
                               horizontal: AppLayout.getWidth(10)),
-                          child: InkWell(
-                            onTap: () {
+                          child: TextButton(
+                            onPressed: () {
                               debugPrint("Articles pressed");
                               setState(() {
                                 selectedWidget = WidgetMarker.articles;
+                                isSelected == !isSelected;
                               });
                             },
                             child: Text(
                               "Articles".toUpperCase(),
                               style: TextStyle(
-                                  color: isSelected == true
+                                  color: isSelected
                                       ? Colors.blue[700]
                                       : Colors.grey),
                             ),
@@ -83,17 +84,18 @@ class _MagazineDetailsState extends State<MagazineDetails> {
                         Container(
                           margin: EdgeInsets.symmetric(
                               horizontal: AppLayout.getWidth(10)),
-                          child: InkWell(
-                            onTap: () {
+                          child: TextButton(
+                            onPressed: () {
                               debugPrint("On my device pressed");
                               setState(() {
                                 selectedWidget = WidgetMarker.onMyDevice;
+                                isSelected == !isSelected;
                               });
                             },
                             child: Text(
                               "On my device".toUpperCase(),
                               style: TextStyle(
-                                  color: isSelected == true
+                                  color: isSelected
                                       ? Colors.blue[700]
                                       : Colors.grey),
                             ),
@@ -102,17 +104,18 @@ class _MagazineDetailsState extends State<MagazineDetails> {
                         Container(
                           margin: EdgeInsets.symmetric(
                               horizontal: AppLayout.getWidth(10)),
-                          child: InkWell(
-                            onTap: () {
+                          child: TextButton(
+                            onPressed: () {
                               debugPrint("Bookmarks pressed");
                               setState(() {
                                 selectedWidget = WidgetMarker.bookMarks;
+                                isSelected == !isSelected;
                               });
                             },
                             child: Text(
                               "Bookmarks".toUpperCase(),
                               style: TextStyle(
-                                  color: isSelected == true
+                                  color: isSelected
                                       ? Colors.blue[700]
                                       : Colors.grey),
                             ),
@@ -121,17 +124,18 @@ class _MagazineDetailsState extends State<MagazineDetails> {
                         Container(
                           margin: EdgeInsets.symmetric(
                               horizontal: AppLayout.getWidth(10)),
-                          child: InkWell(
-                            onTap: () {
+                          child: TextButton(
+                            onPressed: () {
                               debugPrint("clips pressed");
                               setState(() {
                                 selectedWidget = WidgetMarker.clips;
+                                isSelected == !isSelected;
                               });
                             },
                             child: Text(
                               "clips".toUpperCase(),
                               style: TextStyle(
-                                  color: isSelected == true
+                                  color: isSelected
                                       ? Colors.blue[700]
                                       : Colors.grey),
                             ),
@@ -154,6 +158,7 @@ class _MagazineDetailsState extends State<MagazineDetails> {
               MaterialPageRoute(builder: (context) => SettingsScreen()));
         },
         child: Icon(Icons.settings),
+        backgroundColor: Colors.grey,
       ),
     );
   }
